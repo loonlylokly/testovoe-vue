@@ -8,6 +8,12 @@
 Скриншоты лежат в папке /public/screenshots
 
 
+## Время работы
+13-16ч
+
+## Деплой
+https://testovoe-vue.vercel.app/
+
 
 
 ## Project Setup
