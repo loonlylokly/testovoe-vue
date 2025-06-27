@@ -1,0 +1,159 @@
+@use '@/shared/styles/modules' as *;
+.promo__form {
+  position: absolute;
+  right: var(--wrapper-pd-inl, 10rem);
+  top: 12rem;
+  display: flex;
+  width: 100%;
+  max-width: 41.5rem;
+  padding: 3rem;
+  flex-direction: column;
+  gap: 3rem;
+  color: var(--text-dark-primary, #000);
+  border-radius: var(--Radius-card, 1.6rem);
+  background: var(--bg-cta, #e1e0dc);
+  z-index: 2;
+
+  @include breakpoint($lp-bp) {
+    max-width: 36rem;
+    top: 10rem;
+    padding: 3rem 2.5rem;
+    gap: 2rem;
+  }
+
+  @include breakpoint($md-bp) {
+    max-width: 68.8rem;
+    /* top: calc(100% + 16.2rem); */
+    top: 83dvh;
+    padding: 3rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include breakpoint($sm-bp) {
+    /* top: calc(100% + 13rem); */
+    top: 81.5dvh;
+    max-width: calc(100% - 3.2rem);
+    padding: 2rem;
+  }
+
+  &_fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include breakpoint($lp-bp) {
+      margin-top: 1.5rem;
+    }
+
+    @include breakpoint($md-bp) {
+      flex-direction: row;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      flex-direction: column;
+      margin-top: -0.3rem;
+    }
+
+    & label {
+      @include breakpoint($md-bp) {
+        width: calc(50% - 1rem);
+      }
+
+      @include breakpoint($md-bp) {
+        width: 100%;
+      }
+    }
+  }
+
+  &_policy {
+    display: flex;
+    gap: 1.5rem;
+    @include breakpoint($lp-bp) {
+      margin-top: 0.5rem;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    @include breakpoint($sm-bp) {
+      align-items: flex-start;
+      margin-top: 0;
+    }
+
+    & a {
+      color: var(--text-dark-primary, #0a0a0a);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: auto;
+      text-underline-offset: auto;
+      text-underline-position: from-font;
+      @include font-body-s-regular;
+      @include breakpoint($sm-bp) {
+        @include font-body-m-regular;
+      }
+    }
+  }
+  &_submit {
+    @include breakpoint($md-bp) {
+      margin-top: 1.3rem;
+      margin-left: auto;
+    }
+
+    @include breakpoint($sm-bp) {
+      margin: -0.5rem 0 0;
+    }
+  }
+}
+
+.thanks__dialog {
+}
+
+.thanks__dialog_overlay {
+  background-color: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.thanks__dialog_content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  aspect-ratio: 2/1;
+  border-radius: 0.8rem;
+  padding: 3rem 6rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid black;
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  width: 90vw;
+  max-width: 450px;
+  max-height: 85vh;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 98;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  & h2 {
+    text-align: center;
+    color: black;
+    @include font-h1;
+  }
+
+  & p {
+    text-align: center;
+    @include font-title-l;
+  }
+}

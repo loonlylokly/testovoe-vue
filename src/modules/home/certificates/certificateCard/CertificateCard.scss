@@ -1,0 +1,135 @@
+@use '@/shared/styles/modules' as *;
+
+.certificate-card {
+  position: relative;
+  display: flex;
+  padding: 4rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  border-radius: var(--Radius-card, 1.6rem);
+  border: 1px solid var(--stroke-dark-25, rgba(10, 10, 10, 0.25));
+  color: var(--text-dark-primary, #0a0a0a);
+  transition: background 300ms ease-in-out;
+  overflow: hidden;
+
+  @include breakpoint($lp-bp) {
+    padding: 3rem;
+  }
+
+  @include breakpoint($md-bp) {
+    padding: 2.5rem;
+    gap: 2rem;
+  }
+
+  @include breakpoint($sm-bp) {
+    padding: 2rem;
+  }
+
+  &:hover {
+    border-color: var(--accent-primary-hover, #ccb076);
+    background: var(--accent-primary-hover, #ccb076);
+
+    & .certificate-card {
+      &__link .icon-wrap svg {
+        transform: rotate(0);
+      }
+
+      &__img {
+        opacity: 1;
+        transform: translateY(21%);
+        @include breakpoint($lp-bp) {
+          transform: translateY(33%);
+        }
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    width: 20.6rem;
+    right: -1.3rem;
+    opacity: 0;
+    transform: translateY(100%);
+    border-radius: var(--Radius-card, 1.6rem);
+    z-index: 1;
+    transition:
+      transform 300ms ease-in-out,
+      opacity 300ms ease-in-out;
+
+    @include breakpoint($lp-bp) {
+      right: -4.2rem;
+      width: 17.2rem;
+      height: 24.2rem;
+    }
+
+    @include breakpoint($md-bp) {
+      display: none;
+    }
+
+    & img {
+      border-radius: var(--Radius-card, 1.6rem);
+    }
+  }
+
+  &__text {
+    width: 30rem;
+    height: 19.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+
+    @include breakpoint($lp-bp) {
+      height: 19.8rem;
+    }
+
+    @include breakpoint($md-bp) {
+      height: 16.4rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      height: 8.8rem;
+      gap: 2rem;
+    }
+  }
+
+  &__link {
+    display: flex;
+    gap: 1rem;
+
+    & .icon-wrap {
+      width: 1.6rem;
+      height: 1.6rem;
+
+      & svg {
+        transform: rotate(-45deg);
+        transition: transform 300ms ease-in-out;
+      }
+    }
+  }
+
+  &__icon {
+    align-self: flex-end;
+    min-width: 5rem;
+    max-width: 5rem;
+    height: 5rem;
+
+    @include breakpoint($lp-bp) {
+      min-width: 4rem;
+      max-width: 4rem;
+      height: 4rem;
+    }
+    @include breakpoint($md-bp) {
+      min-width: 3.2rem;
+      max-width: 3.2rem;
+      height: 3.2rem;
+    }
+    @include breakpoint($sm-bp) {
+      min-width: 2.4rem;
+      max-width: 2.4rem;
+      height: 2.4rem;
+      align-self: flex-start;
+    }
+  }
+}

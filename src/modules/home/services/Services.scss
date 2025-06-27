@@ -1,0 +1,14 @@
+@use '@/shared/styles/modules' as *;
+.services {
+  padding-top: var(--section-pd, 12rem);
+  @include breakpoint($md-bp) {
+    margin-top: 27.2rem;
+  }
+  @include breakpoint($sm-bp) {
+    margin-top: 40.4rem;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}

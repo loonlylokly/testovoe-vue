@@ -1,0 +1,66 @@
+@use '@/shared/styles/modules' as *;
+.promo {
+  position: relative;
+  width: 100%;
+  height: calc(100dvh - var(--main-pd-top));
+
+  &__wrap {
+    position: relative;
+    padding-top: 12rem;
+    color: var(--text-light-primary, #fff);
+    z-index: 2;
+    @include breakpoint($lp-bp) {
+      padding-top: 10rem;
+    }
+
+    @include breakpoint($md-bp) {
+      padding-top: 6rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding-top: 3rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+    max-width: 85rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    @include breakpoint($lp-bp) {
+      max-width: 63rem;
+    }
+
+    @include breakpoint($md-bp) {
+      max-width: 45.2rem;
+      gap: 2rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      gap: 1.5rem;
+    }
+  }
+
+  &__btns {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+
+    @include breakpoint($sm-bp) {
+      margin-top: 1rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+}
+
+@keyframes pagination {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

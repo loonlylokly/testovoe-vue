@@ -1,0 +1,90 @@
+@use '@/shared/styles/modules' as *;
+.promo__slider {
+  width: 100%;
+  height: 100%;
+  &_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &_filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.5);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  & .swiper-pagination {
+    min-width: 174rem;
+    max-width: 174rem;
+    width: 100%;
+    padding-inline: var(--wrapper-pd-inl, 10rem);
+    display: flex;
+    align-items: flex-end;
+    gap: 4rem;
+    bottom: 4rem;
+    z-index: 2;
+
+    @include breakpoint($lp-bp) {
+      min-width: 128rem;
+      max-width: 128rem;
+    }
+    @include breakpoint($md-bp) {
+      min-width: 61.8rem;
+      max-width: 61.8rem;
+      bottom: 8rem;
+      gap: 2rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      min-width: 22rem;
+      max-width: 22rem;
+      gap: 1rem;
+      bottom: 7rem;
+    }
+  }
+
+  & .swiper-pagination-bullet {
+    position: relative;
+    width: 100%;
+    height: 0.2rem;
+    opacity: 1;
+    background: var(--stroke-light-25, rgba(255, 255, 255, 0.25));
+    border-radius: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0.2rem;
+      width: 0%;
+      background: var(--stroke-light-100, #fff);
+    }
+  }
+
+  & .swiper-pagination-bullet-active::after {
+    animation: pagination 4000ms 1 linear both 1000ms;
+  }
+
+  &_controls {
+    position: absolute;
+    bottom: 4rem;
+    right: var(--wrapper-pd-inl, 10rem);
+    z-index: 2;
+
+    @include breakpoint($md-bp) {
+      bottom: 8rem;
+    }
+
+    @include breakpoint($md-bp) {
+      bottom: 7rem;
+    }
+  }
+}

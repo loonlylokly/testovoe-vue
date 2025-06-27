@@ -1,0 +1,170 @@
+@use './modules.scss' as *;
+html {
+  box-sizing: border-box;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  font-size: 10px;
+
+  @include breakpoint($xl-bp) {
+    font-size: calc(100vw / 1920 * 10);
+  }
+
+  @include breakpoint($lp-bp) {
+    font-size: calc(100vw / 1440 * 10);
+  }
+
+  @include breakpoint($md-bp) {
+    font-size: calc(100vw / 768 * 10);
+  }
+
+  @include breakpoint($sm-bp) {
+    font-size: calc(100vw / 320 * 10);
+  }
+}
+
+body {
+  margin: 0;
+  word-break: normal;
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: #000;
+  font-family: var(--font-family1);
+  text-transform: none;
+}
+
+body:has(dialog[open]),
+body:has(.header-m.open) {
+  overflow: hidden;
+}
+
+p {
+  font: inherit;
+}
+
+a {
+  color: var(--text-light-primary, #fff);
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  padding-top: var(--main-pd-top);
+  /* overflow-x: hidden; */
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 192rem;
+  padding-inline: var(--wrapper-pd-inl, 10rem);
+  margin-inline: auto;
+
+  /* @include breakpoint($xl-bp) {
+    max-width: 192rem;
+    padding-inline: 16rem;
+  }
+
+  @include breakpoint($md-bp) {
+    padding-inline: 1.6rem;
+  } */
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.icon-wrap {
+  display: inline-block;
+}
+
+/* Анимации для View Transition */
+::view-transition-old(main-content) {
+  animation: fade-out 0.5s ease-in-out;
+}
+
+::view-transition-new(main-content) {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+br.desk {
+  @media (max-width: $lp-bp) {
+    display: none;
+  }
+}
+
+br.desk-tab {
+  /* @media (max-width: $sm-bp) {
+    display: none;
+  } */
+}
+
+br.tab {
+  display: none;
+  /* @media (max-width: $md-bp) {
+    display: initial;
+  }
+
+  @media (max-width: $sm-bp) {
+    display: none;
+  } */
+}
+
+br.tab-mob {
+  display: none;
+  /* @media (max-width: $md-bp) {
+    display: initial;
+  } */
+}
+
+br.mob {
+  display: none;
+  /* @media (max-width: $sm-bp) {
+    display: initial;
+  } */
+}

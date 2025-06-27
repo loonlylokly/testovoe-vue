@@ -1,0 +1,183 @@
+$xl-bp: 1920px;
+$lp-bp: 1440px;
+$tb-bp: 1280px;
+$md-bp: 768px;
+$sm-bp: 460px;
+
+@mixin breakpoint($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+:root {
+  --font-family1: 'LT Superior', sans-serif;
+}
+
+// H1 Styles
+@mixin font-h1 {
+  font: normal 600 6rem/115% var(--font-family1, 'LT Superior'); // 60px → 6rem (60/10)
+
+  @include breakpoint($lp-bp) {
+    font: normal 600 5rem/115% var(--font-family1, 'LT Superior'); // 50px → 5rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 600 3.6rem/115% var(--font-family1, 'LT Superior'); // 36px → 3.6rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 600 2.6rem/115% var(--font-family1, 'LT Superior'); // 26px → 2.6rem
+  }
+}
+
+// H2 Styles
+@mixin font-h2 {
+  font: normal 600 4.8rem/130% var(--font-family1, 'LT Superior'); // 48px → 4.8rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 600 3.4rem/130% var(--font-family1, 'LT Superior'); // 34px → 3.4rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 600 2.8rem/130% var(--font-family1, 'LT Superior'); // 28px → 2.8rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 600 2rem/130% var(--font-family1, 'LT Superior'); // 20px → 2rem
+  }
+}
+
+// Title L Styles
+@mixin font-title-l {
+  font: normal 600 3.2rem/130% var(--font-family1, 'LT Superior'); // 32px → 3.2rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 600 2.4rem/140% var(--font-family1, 'LT Superior'); // 24px → 2.4rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 600 2.2rem/140% var(--font-family1, 'LT Superior'); // 22px → 2.2rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 600 1.8rem/140% var(--font-family1, 'LT Superior'); // 18px → 1.8rem
+  }
+}
+
+// Title M Styles
+@mixin font-title-m {
+  font: normal 600 2.4rem/150% var(--font-family1, 'LT Superior'); // 24px → 2.4rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 600 2rem/140% var(--font-family1, 'LT Superior'); // 20px → 2rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 600 1.8rem/150% var(--font-family1, 'LT Superior'); // 18px → 1.8rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 600 1.6rem/140% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+  }
+}
+
+// Body L Regular Styles
+@mixin font-body-l-regular {
+  font: normal 400 2rem/150% var(--font-family1, 'LT Superior'); // 20px → 2rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 400 1.6rem/150% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 400 1.6rem/150% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 400 1.4rem/150% var(--font-family1, 'LT Superior'); // 14px → 1.4rem
+  }
+}
+
+// Body M Regular Styles
+@mixin font-body-m-regular {
+  font: normal 400 1.8rem/150% var(--font-family1, 'LT Superior'); // 18px → 1.8rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 400 1.4rem/150% var(--font-family1, 'LT Superior'); // 14px → 1.4rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 400 1.4rem/150% var(--font-family1, 'LT Superior'); // 14px → 1.4rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 400 1.4rem/150% var(--font-family1, 'LT Superior'); // 14px → 1.4rem
+  }
+}
+
+// Body S Regular Styles
+@mixin font-body-s-regular {
+  font: normal 400 1.6rem/150% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 400 1.4rem/150% var(--font-family1, 'LT Superior'); // 14px → 1.4rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 400 1.4rem/150% var(--font-family1, 'LT Superior'); // 14px → 1.4rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 400 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+}
+
+// Caption S Semibold Styles
+@mixin font-caption-s-semibold {
+  font: normal 600 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+
+  @include breakpoint($lp-bp) {
+    font: normal 600 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 600 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 600 1rem / normal var(--font-family1, 'LT Superior'); // 10px → 1rem
+    letter-spacing: 0.05rem;
+  }
+}
+
+// Button M Styles
+@mixin font-btn-m {
+  font: normal 450 1.8rem / normal var(--font-family1, 'LT Superior'); // 18px → 1.8rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 400 1.6rem/150% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 450 1.6rem/150% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 450 1.6rem/150% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+  }
+}
+
+// Error Field Styles
+@mixin font-error-field {
+  font: normal 400 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 400 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 400 1.2rem / normal var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 400 1.2rem / normal var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+}
+
+// Logo Description Styles
+@mixin font-logo-description {
+  font: normal 400 1.6rem/150% var(--font-family1, 'LT Superior'); // 16px → 1.6rem
+
+  @include breakpoint($lp-bp) {
+    font: normal 400 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+  @include breakpoint($md-bp) {
+    font: normal 400 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+  @include breakpoint($sm-bp) {
+    font: normal 400 1.2rem/150% var(--font-family1, 'LT Superior'); // 12px → 1.2rem
+  }
+}

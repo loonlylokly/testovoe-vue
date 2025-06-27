@@ -1,0 +1,51 @@
+@use '@/shared/styles/modules' as *;
+.slider-default {
+  overflow-x: visible;
+  &__title {
+    margin-bottom: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint($lp-bp) {
+      margin-bottom: 5rem;
+    }
+
+    @include breakpoint($md-bp) {
+      margin-bottom: 4.5rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      margin-bottom: 2.5rem;
+    }
+    & h2 {
+      align-self: flex-start;
+    }
+  }
+
+  &__controls {
+    width: fit-content;
+    display: flex;
+    gap: 2rem;
+
+    @include breakpoint($sm-bp) {
+      display: none;
+    }
+
+    & .slider-controls {
+      @include breakpoint($md-bp) {
+        display: none;
+      }
+    }
+  }
+
+  &__all {
+    &.mob {
+      display: none;
+      @include breakpoint($sm-bp) {
+        margin-top: 2.4rem;
+        display: flex;
+      }
+    }
+  }
+}

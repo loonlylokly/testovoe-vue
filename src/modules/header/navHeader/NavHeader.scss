@@ -1,0 +1,100 @@
+@use '@/shared/styles/modules' as *;
+.header {
+  &__nav {
+    height: fit-content;
+    padding-left: 8.5rem;
+    @include breakpoint($lp-bp) {
+      padding-left: 3.2rem;
+    }
+    @include breakpoint($md-bp) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    position: relative;
+    background: transparent;
+
+    &:last-of-type .header__item_link {
+      padding-right: 0;
+    }
+
+    &_link {
+      padding: 1.2rem 4rem 1.1rem 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light-primary, #fff);
+      border: none;
+      background: transparent;
+
+      @include breakpoint($lp-bp) {
+        padding: 0.7rem 2rem 0.8rem 0;
+      }
+
+      & .icon-wrap {
+        width: 1.4rem;
+        height: 1.4rem;
+        transition: transform 300ms ease-in-out;
+      }
+
+      &[data-state='open'] .icon-wrap {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &_context {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: transparent;
+      animation-duration: 500ms;
+      animation-timing-function: ease;
+
+      &[data-motion='from-start'] {
+        animation-name: enterFromLeft;
+      }
+
+      &[data-motion='from-end'] {
+        animation-name: enterFromRight;
+      }
+
+      &[data-motion='to-start'] {
+        animation-name: exitToLeft;
+      }
+
+      &[data-motion='to-end'] {
+        animation-name: exitToRight;
+      }
+
+      &_wrap {
+        background-color: var(--bg-light-white, #fff);
+      }
+
+      &_menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 3.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        background-color: var(--bg-light-white, #fff);
+      }
+
+      &_link {
+        color: var(--text-dark-primary, #0a0a0a);
+        text-decoration: none;
+      }
+    }
+  }
+}

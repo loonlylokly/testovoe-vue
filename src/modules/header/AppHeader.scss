@@ -1,0 +1,324 @@
+@use '@/shared/styles/modules' as *;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: var(--text-light-primary, #fff);
+  background: var(--bg-dark-dark, #0a0a0a);
+  z-index: 100;
+  transition: transform 300ms ease-in-out;
+
+  &__wrap {
+    max-width: 192rem;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 10rem;
+    gap: 2rem;
+
+    @include breakpoint($lp-bp) {
+      padding: 1.5rem 8rem;
+    }
+
+    @include breakpoint($md-bp) {
+      padding: 1.5rem 4rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    &_wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    &_img {
+      min-width: 10.9rem;
+      max-width: 10.9rem;
+      height: 2.4rem;
+
+      @include breakpoint($lp-bp) {
+        min-width: 8.5rem;
+        max-width: 8.5rem;
+        height: 1.9rem;
+      }
+      @include breakpoint($md-bp) {
+        min-width: 10.9rem;
+        max-width: 10.9rem;
+        height: 2.4rem;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &_icon {
+      min-width: 2.6rem;
+      max-width: 2.6rem;
+      height: 2.6rem;
+      margin-left: 1.4rem;
+      color: var(--bg-light-white, #fff);
+      @include breakpoint($lp-bp) {
+        min-width: 2.0392rem;
+        max-width: 2.0392rem;
+        height: 2.0392rem;
+      }
+      @include breakpoint($md-bp) {
+        min-width: 2.6rem;
+        max-width: 2.6rem;
+        height: 2.6rem;
+      }
+      @include breakpoint($sm-bp) {
+        margin-left: 1.1rem;
+      }
+    }
+
+    &_title {
+      margin-left: 3rem;
+      color: var(--text-light-secondary, rgba(255, 255, 255, 0.6));
+      @include breakpoint($lp-bp) {
+        margin-left: 2rem;
+      }
+      @include breakpoint($md-bp) {
+        margin-left: 1.5rem;
+      }
+      @include breakpoint($sm-bp) {
+        display: none;
+      }
+    }
+  }
+
+  &__hidden {
+    transform: translateY(-100%);
+  }
+
+  &__phone {
+    text-decoration: none;
+    @include breakpoint($md-bp) {
+      display: none;
+    }
+  }
+
+  &__address {
+    @include breakpoint($md-bp) {
+      display: none;
+    }
+  }
+
+  &__favorite,
+  &__compare {
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    color: var(--bg-light-white, #fff);
+    display: flex;
+    @include breakpoint($sm-bp) {
+      display: none;
+    }
+
+    &_icon {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    &_counter {
+      padding: 0 0.4rem;
+      color: var(--text-dark-primary, #0a0a0a);
+
+      /* 1440/body_XXS_semibold */
+      font-family: 'LT Superior';
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%; /* 1.5rem */
+
+      border-radius: var(--Radius-small-elements, 0.4rem);
+      background: var(--accent-primary-hover, #ccb076);
+    }
+  }
+
+  &__info {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    @include breakpoint($lp-bp) {
+      gap: 2rem;
+    }
+
+    @include breakpoint($sm-bp) {
+      display: none;
+    }
+  }
+
+  &__favorites {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    @include breakpoint($lp-bp) {
+      gap: 1.5rem;
+    }
+  }
+
+  &__viewport-position {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background: transparent;
+    perspective: 200rem;
+  }
+
+  &__item_viewport {
+    position: relative;
+    transform-origin: top center;
+    width: 100%;
+    padding-top: 1rem;
+    border-radius: 0.6rem;
+    background-color: var(--bg-light-white, #fff);
+    overflow: hidden;
+    box-shadow:
+      hsl(206 22% 7% / 35%) 0rem 1rem 3.8rem -1rem,
+      hsl(206 22% 7% / 20%) 0rem 1rem 2rem -1.5rem;
+    height: var(--reka-navigation-menu-viewport-height);
+    transition:
+      width,
+      height,
+      300ms ease;
+
+    &[data-state='open'] {
+      animation: scaleIn 200ms ease;
+    }
+    &[data-state='closed'] {
+      animation: scaleOut 200ms ease;
+    }
+  }
+
+  &__connect {
+    display: none;
+    padding: 1.3rem 1.2rem 1.1rem 1.2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: var(--Radius-btn, 0.8rem);
+    background: var(--accent-primary-hover, #ccb076);
+
+    @include breakpoint($md-bp) {
+      display: flex;
+    }
+
+    & .icon-wrap {
+      min-width: 2rem;
+      max-width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+@keyframes enterFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(20rem);
+  }
+}
+
+@keyframes exitToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-20rem);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-30deg) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: rotateX(-10deg) scale(0.95);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
