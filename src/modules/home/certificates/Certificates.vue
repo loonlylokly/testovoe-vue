@@ -9,10 +9,7 @@ import './Certificates.scss'
 const galleryName = 'my-gallery'
 
 onMounted(() => {
-  Fancybox.bind('[data-fancybox]', {
-    Thumbs: false,
-    Toolbar: true,
-  })
+  Fancybox.bind('[data-fancybox]')
 })
 
 onUnmounted(() => {
@@ -51,7 +48,8 @@ const certificates = ref([
   <section class="certificates wrapper">
     <SliderDefault title="Сертификаты" btn-all-text="Все сертификаты" btn-id="certificatesSlider">
       <SwiperSlide v-for="certificate in certificates" :key="certificate.id">
-        <a class="certificates__link" :href="certificate.img.src" :data-fancybox="galleryName" :data-caption="certificate.img.alt">
+        <a class="certificates__link" :href="certificate.img.src" :data-fancybox="galleryName"
+          :data-caption="certificate.img.alt">
           <CertificateCard :name="certificate.name" :img="certificate.img" />
         </a>
       </SwiperSlide>
